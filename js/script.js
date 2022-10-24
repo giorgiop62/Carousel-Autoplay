@@ -50,3 +50,9 @@ function nextPrev(isNext){
   listImages[counterImages].classList.add('active');
   listthumbs[counterImages].classList.add('active');
 }
+
+setInterval(function(){
+  nextPrev()
+}, 1000);
+
+
