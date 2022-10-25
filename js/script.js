@@ -2,6 +2,9 @@ const slider = document.querySelector('.slider');
 const thumbs = document.querySelector('.thumbs');
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
+const container = document.querySelector('.container')
+
+
 
 const numImages = 5;
 let counterImages = 0;
@@ -10,7 +13,7 @@ let thumbsHtml = '';
 
 for(let i = 1; i <= numImages; i++){
   sliderHtml += `
-      <img  class="item" src="img/0${i}.jpg" alt="">
+      <img class="item" src="img/0${i}.jpg" alt="">
   `;
   thumbsHtml += `
       <img  class="item-thumb" src="img/0${i}.jpg" alt="">
@@ -29,6 +32,7 @@ listthumbs[counterImages].classList.add('active');
 
 prev.addEventListener('click',function(){
   nextPrev(false);
+
 })
 next.addEventListener('click',function(){
   nextPrev(true);
@@ -51,8 +55,32 @@ function nextPrev(isNext){
   listthumbs[counterImages].classList.add('active');
 }
 
+
+let isOver = false;
+//genero un loop infinito di foto
 setInterval(function(){
-  nextPrev()
-}, 1000);
+  if(!isOver) nextPrev(false);
+}, 2000);
+
+
+container.addEventListener('mouseenter', function(){
+  isOver = true;
+})
+
+container.addEventListener('mouseenter', function(){
+  isOver = false;
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
